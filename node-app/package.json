@@ -1,0 +1,19 @@
+{
+    "name": "zdt-poc",
+    "version": "1.0.0",
+    "description": "PoC project to test zero time docker deploy",
+    "main": "app.js",
+    "scripts": {
+      "start": "node app.js"
+    },
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/valery-leontyev-idt/zdt-poc.git"
+    },
+    "author": "valery.leontyev@idt.net",
+    "license": "UNLICENSED",
+    "homepage": "https://github.com/feedbee/My-Bookshelf",
+    "dependencies": {
+      "express": "^4.17.1"
+    }
+  }

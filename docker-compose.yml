@@ -1,0 +1,41 @@
+version: "3"
+services:
+    nginx:
+        image: nginx:1.19.1-alpine
+        labels:
+            - "ztd-nginx-poc-role=gayteway"
+        networks:
+            - webgateway
+        ports:
+            - "8000:80"
+            - "3010:3010"
+        volumes:
+            - ./nginx/conf.d/services.conf:/etc/nginx/conf.d/services.conf
+            - ./nginx/services:/etc/nginx/services.d
+            - ./nginx/ports:/usr/share/nginx/html/ports
+    
+    node-app-blue:
+        build: ./node-app
+        labels:
+            - "ztd-nginx-poc-color=blue"
+        networks:
+            - webgateway
+        ports:
+            - "3011:3000" #debug purpose
+        environment:
+            - DEPLOYMENT_ENVIRONMENT_NAME=BLUE
+
+    node-app-green:
+        build: ./node-app
+        labels:
+            - "ztd-nginx-poc-color=green"
+        networks:
+            - webgateway
+        ports:
+            - "3012:3000" #debug purpose
+        environment:
+            - DEPLOYMENT_ENVIRONMENT_NAME=GREEN
+
+networks:
+    webgateway:
+        driver: bridge
