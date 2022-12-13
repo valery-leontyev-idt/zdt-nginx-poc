@@ -14,6 +14,6 @@
     "license": "UNLICENSED",
     "homepage": "https://github.com/feedbee/My-Bookshelf",
     "dependencies": {
-      "express": "^4.17.1"
+      "express": "^4.17.3"
     }
   }
